@@ -7,8 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
+
+@property (nonatomic, strong) NSArray<UIImage *> *images;
+
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -16,9 +23,76 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.imageScrollView setTranslatesAutoresizingMaskIntoConstraints:YES];
+    
+    [self setUpScrollForPaging];
+}
+
+- (NSArray<UIImage *> *)images
+{
+    return @[
+             [UIImage imageNamed:@"lighthouseField"],
+             [UIImage imageNamed:@"lighthouseNight"],
+             [UIImage imageNamed:@"lighthouseZoomed"],
+             ];
+}
+
+
+- (void) setUpScrollForPaging
+{
+    
+    CGFloat scrollViewWidth = CGRectGetWidth(self.imageScrollView.frame);
+    CGFloat scrollViewHeight = CGRectGetHeight(self.imageScrollView.frame);
+    
+    
+    [self.images enumerateObjectsUsingBlock:^(UIImage *_Nonnull image, NSUInteger idx, BOOL *_Nonnull stop)
+    
+    {
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        imageView.frame = CGRectMake(scrollViewWidth*idx, 0, scrollViewWidth, scrollViewHeight);
+        
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        imageView.clipsToBounds = YES;
+        
+        [self.imageScrollView addSubview:imageView];
+    }];
+    
+    
+    self.imageScrollView.contentSize = CGSizeMake(self.images.count*scrollViewWidth, scrollViewHeight);
+
+    self.imageScrollView.pagingEnabled = YES;
+}
+
+
+- (IBAction)tapped:(UITapGestureRecognizer *)sender
+{
+    UIImageView *imageView = (UIImageView *)sender.view;
+    
+    [self performSegueWithIdentifier:@"showDetails" sender:imageView.image];
+    
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"showDetails"]){
+        
+        DetailViewController *details = [segue destinationViewController];
+    
+        
+    }
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

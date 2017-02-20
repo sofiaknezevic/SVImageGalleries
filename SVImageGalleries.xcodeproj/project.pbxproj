@@ -13,6 +13,7 @@
 		5D4A78E81E5B9BF6002FC9DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D4A78E61E5B9BF6002FC9DE /* Main.storyboard */; };
 		5D4A78EA1E5B9BF6002FC9DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D4A78E91E5B9BF6002FC9DE /* Assets.xcassets */; };
 		5D4A78ED1E5B9BF6002FC9DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D4A78EB1E5B9BF6002FC9DE /* LaunchScreen.storyboard */; };
+		5D4A78F81E5BA8D6002FC9DE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A78F71E5BA8D6002FC9DE /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		5D4A78E91E5B9BF6002FC9DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D4A78EC1E5B9BF6002FC9DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D4A78EE1E5B9BF6002FC9DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D4A78F61E5BA8D6002FC9DE /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5D4A78F71E5BA8D6002FC9DE /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				5D4A78E11E5B9BF6002FC9DE /* AppDelegate.m */,
 				5D4A78E31E5B9BF6002FC9DE /* ViewController.h */,
 				5D4A78E41E5B9BF6002FC9DE /* ViewController.m */,
+				5D4A78F61E5BA8D6002FC9DE /* DetailViewController.h */,
+				5D4A78F71E5BA8D6002FC9DE /* DetailViewController.m */,
 				5D4A78E61E5B9BF6002FC9DE /* Main.storyboard */,
 				5D4A78E91E5B9BF6002FC9DE /* Assets.xcassets */,
 				5D4A78EB1E5B9BF6002FC9DE /* LaunchScreen.storyboard */,
@@ -154,6 +159,7 @@
 				5D4A78E51E5B9BF6002FC9DE /* ViewController.m in Sources */,
 				5D4A78E21E5B9BF6002FC9DE /* AppDelegate.m in Sources */,
 				5D4A78DF1E5B9BF6002FC9DE /* main.m in Sources */,
+				5D4A78F81E5BA8D6002FC9DE /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
