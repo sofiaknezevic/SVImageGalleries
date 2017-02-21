@@ -88,8 +88,6 @@
     
     if ([imageView isKindOfClass:[UIImageView class]]) {
         
-
-        
         [self performSegueWithIdentifier:@"showDetails" sender:imageView.image];
         
     }
@@ -106,7 +104,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat width = self.imageScrollView.frame.size.width;
-    NSInteger page = (self.imageScrollView.contentOffset.x + (0.5 *width))/width;
+    NSInteger page = ((self.imageScrollView.contentOffset.x)/width);
     self.pageController.currentPage = page;
     
 }
