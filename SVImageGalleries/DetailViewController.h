@@ -10,6 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic) UIImage *image;
+@property (nonatomic) UIImage *passedImage;
 
 @end

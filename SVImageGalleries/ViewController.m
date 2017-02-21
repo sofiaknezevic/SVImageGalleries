@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    self.imageScrollView.delegate = self;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -65,6 +65,8 @@
         
         imageView.clipsToBounds = YES;
         
+        imageView.userInteractionEnabled = YES;
+        
         [self.imageScrollView addSubview:imageView];
     }];
     
@@ -79,27 +81,23 @@
 {
     CGPoint location = [sender locationInView:self.imageScrollView];
     
-    UIView * view = [self.imageScrollView hitTest:location withEvent:nil];
+    UIImageView * imageView = (UIImageView *)[self.imageScrollView hitTest:location withEvent:nil];
     
-    if ([view isKindOfClass:[UIImageView class]]) {
+    if ([imageView isKindOfClass:[UIImageView class]]) {
         
-        UIImageView * imageView = (UIImageView *)view;
 
         
         [self performSegueWithIdentifier:@"showDetails" sender:imageView.image];
         
     }
-    
-    
-    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
-    DetailViewController *details = [segue destinationViewController];
-    
-    details.image = sender;
+    if([segue.identifier isEqualToString:@"showDetails"]){
+        ((DetailViewController *)segue.destinationViewController).passedImage = sender;
+    }
 
 
 }
