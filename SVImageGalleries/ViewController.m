@@ -77,20 +77,30 @@
 
 - (IBAction)tapped:(UITapGestureRecognizer *)sender
 {
-    UIImageView *imageView = (UIImageView *)sender.view;
+    CGPoint location = [sender locationInView:self.imageScrollView];
     
-    [self performSegueWithIdentifier:@"showDetails" sender:imageView.image];
+    UIView * view = [self.imageScrollView hitTest:location withEvent:nil];
+    
+    if ([view isKindOfClass:[UIImageView class]]) {
+        
+        UIImageView * imageView = (UIImageView *)view;
+
+        
+        [self performSegueWithIdentifier:@"showDetails" sender:imageView.image];
+        
+    }
+    
+    
     
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"showDetails"]){
-        
-        DetailViewController *details = [segue destinationViewController];
+
+    DetailViewController *details = [segue destinationViewController];
     
-        
-    }
+    details.image = sender;
+
 
 }
 

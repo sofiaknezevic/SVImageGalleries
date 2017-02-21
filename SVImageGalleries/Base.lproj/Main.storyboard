@@ -41,7 +41,7 @@
                     <connections>
                         <outlet property="imageScrollView" destination="YFN-3D-f2o" id="Y1V-kK-LLX"/>
                         <outlet property="tapGesture" destination="eXd-8b-Nst" id="mOt-qc-TCW"/>
-                        <segue destination="3JG-jm-Dim" kind="show" id="cWp-iK-d2E"/>
+                        <segue destination="3JG-jm-Dim" kind="show" identifier="showDetails" id="cWp-iK-d2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
