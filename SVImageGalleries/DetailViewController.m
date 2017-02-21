@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.detailImageView.image = self.passedImage;
     
 }
 
@@ -27,6 +26,8 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [self.detailScrollView setTranslatesAutoresizingMaskIntoConstraints:YES];
     
     [self showDetails];
     
@@ -36,16 +37,21 @@
 
 - (void)showDetails
 {
-    NSLog(@"You've reached here!");
+    
+//    CGFloat detailScrollWidth = CGRectGetWidth(self.detailScrollView.frame);
+//    CGFloat detailScrollHeight = CGRectGetHeight(self.detailScrollView.frame);
+//    
+//    self.detailImageView.image = self.passedImage;
+//    
+//    self.detailImageView.frame = CGRectMake(detailScrollWidth, 0, detailScrollWidth, detailScrollHeight);
+    
+    self.detailImageView.contentMode = UIViewContentModeScaleAspectFit;
     
     self.detailImageView = [[UIImageView alloc] initWithImage:self.passedImage];
     
     [self.detailScrollView addSubview:self.detailImageView];
     
-    self.detailImageView.contentMode = UIViewContentModeScaleAspectFit;
-    
     self.detailScrollView.contentSize = self.detailImageView.bounds.size;
-    
     
     self.detailScrollView.minimumZoomScale = 0.25;
     self.detailScrollView.maximumZoomScale = 4.0;
