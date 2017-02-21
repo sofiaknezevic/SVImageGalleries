@@ -38,13 +38,6 @@
 - (void)showDetails
 {
     
-//    CGFloat detailScrollWidth = CGRectGetWidth(self.detailScrollView.frame);
-//    CGFloat detailScrollHeight = CGRectGetHeight(self.detailScrollView.frame);
-//    
-//    self.detailImageView.image = self.passedImage;
-//    
-//    self.detailImageView.frame = CGRectMake(detailScrollWidth, 0, detailScrollWidth, detailScrollHeight);
-    
     self.detailImageView.contentMode = UIViewContentModeScaleAspectFit;
     
     self.detailImageView = [[UIImageView alloc] initWithImage:self.passedImage];

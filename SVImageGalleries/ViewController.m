@@ -17,6 +17,9 @@
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGesture;
 
+@property (weak, nonatomic) IBOutlet UIPageControl *pageController;
+
+
 @end
 
 @implementation ViewController
@@ -98,8 +101,14 @@
     if([segue.identifier isEqualToString:@"showDetails"]){
         ((DetailViewController *)segue.destinationViewController).passedImage = sender;
     }
+}
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat width = self.imageScrollView.frame.size.width;
+    NSInteger page = (self.imageScrollView.contentOffset.x + (0.5 *width))/width;
+    self.pageController.currentPage = page;
+    
 }
 
 - (void)didReceiveMemoryWarning {

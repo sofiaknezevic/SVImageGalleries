@@ -38,17 +38,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFN-3D-f2o">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="543"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Jx7-Zr-6XS"/>
                                     <outletCollection property="gestureRecognizers" destination="eXd-8b-Nst" appends="YES" id="lMM-8V-MdO"/>
                                 </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="olB-BS-0VP">
+                                <rect key="frame" x="168" y="623" width="39" height="36"/>
+                                <color key="pageIndicatorTintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YFN-3D-f2o" secondAttribute="bottom" id="RhZ-LP-38S"/>
+                            <constraint firstItem="olB-BS-0VP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3T0-aU-pqV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YFN-3D-f2o" secondAttribute="bottom" constant="52" id="RhZ-LP-38S"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="olB-BS-0VP" secondAttribute="bottom" constant="8" id="fZb-mc-QOL"/>
+                            <constraint firstItem="olB-BS-0VP" firstAttribute="top" secondItem="YFN-3D-f2o" secondAttribute="bottom" constant="8" id="h9u-NM-H6X"/>
                             <constraint firstItem="YFN-3D-f2o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jQM-Kt-Ji4"/>
                             <constraint firstAttribute="trailing" secondItem="YFN-3D-f2o" secondAttribute="trailing" id="oWv-BK-DcO"/>
                             <constraint firstItem="YFN-3D-f2o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="qb5-pN-p1j"/>
@@ -57,6 +65,7 @@
                     <navigationItem key="navigationItem" id="hHI-ez-HuU"/>
                     <connections>
                         <outlet property="imageScrollView" destination="YFN-3D-f2o" id="Y1V-kK-LLX"/>
+                        <outlet property="pageController" destination="olB-BS-0VP" id="TmL-pL-uW0"/>
                         <outlet property="tapGesture" destination="eXd-8b-Nst" id="mOt-qc-TCW"/>
                         <segue destination="3JG-jm-Dim" kind="show" identifier="showDetails" id="cWp-iK-d2E"/>
                     </connections>
